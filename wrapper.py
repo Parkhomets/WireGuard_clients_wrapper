@@ -7,9 +7,12 @@ CLIENTS_FILE = 'clients.txt'
 
 def get_clients():
     clients = []
-    with open(CLIENTS_FILE) as file:
-        for line in file:
-            clients.append([i.strip() for i in line.split('|')])
+    try:
+        with open(CLIENTS_FILE) as file:
+            for line in file:
+                clients.append([i.strip() for i in line.split('|')])
+    except:
+        return []
     return clients
 
 
